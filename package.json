@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^1.0.0-alpha.1",
+    "@clerk/clerk-sdk-node": "^0.0.2",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
