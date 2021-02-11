@@ -22,7 +22,11 @@ function MyApp({ Component, pageProps }) {
    * Otherwise, use Clerk to require authentication.
    */
   return (
-    <ClerkProvider host={clerkClientHost} navigate={(to) => router.push(to)}>
+    <ClerkProvider
+      frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}
+      scriptUrl={process.env.NEXT_PUBLIC_CLERK_JS}
+      autoCredential
+      navigate={(to) => router.push(to)}>
       {publicPages.includes(router.pathname) ? (
         <Component {...pageProps} />
       ) : (
