@@ -90,15 +90,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@clerk/clerk-react@^1.0.0-alpha.1":
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-1.0.0-alpha.1.tgz#7c68d00cf0a144994fa0fcbb8245df87b5ae97e5"
-  integrity sha512-2b2lIsVMVtYFgDo0VWI7H7Fl0I6wM/RTrbBArsf+qeIrtIY4VHcKOKfSRYazITNiGUr+it78YlvpqvgqXZ27wQ==
+"@clerk/clerk-react@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-1.1.1.tgz#aeebf49ff71d1371250b70a04ccf402b1e9c521a"
+  integrity sha512-8wpGDWbJiN0Dm/6WWvomJ1V5IS+rV3MTXNXzoecNIyQv40+J7Y7Ll5+YhLsnh14+HnEkcAqrn3r9GXg2Z+wb9w==
 
-"@clerk/clerk-sdk-node@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@clerk/clerk-sdk-node/-/clerk-sdk-node-0.0.2.tgz#ad19e3968e5f4d1921948b7391ccd70d52df3bf0"
-  integrity sha512-TUC+349E7t/nNW0xJ5QeZJxoRfInZqUeMvB3jr6n7C/VG96E9oo4Xz8HGd4hX8MWw+fxjdjRYD5Y12BxJ19crQ==
+"@clerk/clerk-sdk-node@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@clerk/clerk-sdk-node/-/clerk-sdk-node-0.0.5.tgz#86bfdb32a1530df896425d77f88b641fd45cd474"
+  integrity sha512-g9CoBKoLD8lOB8xw9QlvYaTHkICe50gIMNoWUxErZqul4GryA5Fz29fA+qX2/EyJIW70ZbZ6pdbm1x/HIQRTxw==
   dependencies:
     "@types/cookies" "^0.7.6"
     cookies "^0.8.0"
