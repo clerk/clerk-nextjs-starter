@@ -1,67 +1,144 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { useUser } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+
+// Header component using <SignedIn> & <SignedOut>.
+//
+// The SignedIn and SignedOut components are used to control rendering depending
+// on whether or not a visitor is signed in.
+//
+// https://docs.clerk.dev/frontend/react/signedin-and-signedout
+const Header = () => (
+  <header className={styles.header}>
+    <nav className={styles.nav}>
+      <SignedOut>
+        <Link href="/sign-in">Sign in</Link>
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+    </nav>
+  </header>
+);
+
+const ClerkFeatures = () => (
+  <Link href="/user">
+    <a className={styles.cardContent}>
+      <img src="/icons/layout.svg" />
+      <div>
+        <h3>Explore features provided by Clerk</h3>
+        <p>
+          Interact with the user button, user profile, and more to preview what
+          your users will see
+        </p>
+      </div>
+      <div className={styles.arrow}>
+        <img src="/icons/arrow-right.svg" />
+      </div>
+    </a>
+  </Link>
+);
+
+const SignupLink = () => (
+  <Link href="/sign-up">
+    <a className={styles.cardContent}>
+      <img src="/icons/user-plus.svg" />
+      <div>
+        <h3>Sign up for an account</h3>
+        <p>
+          Sign up and sign in to explore all the features provided by Clerk
+          out-of-the-box
+        </p>
+      </div>
+      <div className={styles.arrow}>
+        <img src="/icons/arrow-right.svg" />
+      </div>
+    </a>
+  </Link>
+);
+
+// Main component using <SignedIn> & <SignedOut>.
+//
+// The SignedIn and SignedOut components are used to control rendering depending
+// on whether or not a visitor is signed in.
+//
+// https://docs.clerk.dev/frontend/react/signedin-and-signedout
+const Main = () => (
+  <main className={styles.main}>
+    <h1 className={styles.title}>Welcome to your new app</h1>
+    <p className={styles.description}>Sign up for an account to get started</p>
+
+    <div className={styles.cards}>
+      <div className={styles.card}>
+        <SignedIn>
+          <ClerkFeatures />
+        </SignedIn>
+        <SignedOut>
+          <SignupLink />
+        </SignedOut>
+      </div>
+
+      <div className={styles.card}>
+        <Link href="https://dashboard.clerk.dev">
+          <a className={styles.cardContent}>
+            <img src="/icons/settings.svg" />
+            <div>
+              <h3>Configure settings for your app</h3>
+              <p>
+                Visit Clerk to manage instances and configure settings for user
+                management, theme, and more
+              </p>
+            </div>
+            <div className={styles.arrow}>
+              <img src="/icons/arrow-right.svg" />
+            </div>
+          </a>
+        </Link>
+      </div>
+    </div>
+
+    <div className={styles.links}>
+      <Link href="https://docs.clerk.dev">
+        <a className={styles.link}>
+          <span className={styles.linkText}>Read Clerk documentation</span>
+        </a>
+      </Link>
+      <Link href="https://nextjs.org/docs">
+        <a className={styles.link}>
+          <span className={styles.linkText}>Read NextJS documentation</span>
+        </a>
+      </Link>
+    </div>
+  </main>
+);
+
+// Footer component
+const Footer = () => (
+  <footer className={styles.footer}>
+    <a
+      href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Powered by{" "}
+      <img src="/clerk.svg" alt="Clerk.dev" className={styles.logo} />
+      +
+      <img src="/nextjs.svg" alt="Next.js" className={styles.logo} />
+    </a>
+  </footer>
+);
 
 export default function Home() {
-  const { firstName } = useUser();
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }
