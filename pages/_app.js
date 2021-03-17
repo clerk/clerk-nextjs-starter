@@ -13,7 +13,7 @@ const clerkClientHost = process.env.NEXT_PUBLIC_CLERK_HOST;
  *  "/foo/bar"       for pages/foo/bar.js
  *  "/foo/[...bar]"  for pages/foo/[...bar].js
  */
-const publicPages = ["/sign-in/[[...index]]", "/sign-up/[[...index]]"];
+const publicPages = ["/", "/sign-in/[[...index]]", "/sign-up/[[...index]]"];
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -25,8 +25,8 @@ function MyApp({ Component, pageProps }) {
     <ClerkProvider
       frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}
       scriptUrl={process.env.NEXT_PUBLIC_CLERK_JS}
-      autoCredential
-      navigate={(to) => router.push(to)}>
+      navigate={(to) => router.push(to)}
+    >
       {publicPages.includes(router.pathname) ? (
         <Component {...pageProps} />
       ) : (
