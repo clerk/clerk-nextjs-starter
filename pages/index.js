@@ -16,7 +16,7 @@ const Header = () => (
         <Link href="/sign-in">Sign in</Link>
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        <UserButton userProfileURL="/user" afterSignOutAll="/" />
       </SignedIn>
     </nav>
   </header>
