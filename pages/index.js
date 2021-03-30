@@ -81,7 +81,7 @@ const Main = () => (
 
       <div className={styles.card}>
         <Link href="https://dashboard.clerk.dev">
-          <a className={styles.cardContent}>
+          <a target="_blank" rel="noreferrer" className={styles.cardContent}>
             <img src="/icons/settings.svg" />
             <div>
               <h3>Configure settings for your app</h3>
@@ -100,12 +100,12 @@ const Main = () => (
 
     <div className={styles.links}>
       <Link href="https://docs.clerk.dev">
-        <a className={styles.link}>
+        <a target="_blank" rel="noreferrer" className={styles.link}>
           <span className={styles.linkText}>Read Clerk documentation</span>
         </a>
       </Link>
       <Link href="https://nextjs.org/docs">
-        <a className={styles.link}>
+        <a target="_blank" rel="noreferrer" className={styles.link}>
           <span className={styles.linkText}>Read NextJS documentation</span>
         </a>
       </Link>

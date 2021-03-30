@@ -68,9 +68,16 @@
 .title {
   margin: 0;
   font-size: 2.5rem;
+  line-height: 1.5;
+
+  width: calc(90%);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .description {
+  margin-top: 0;
   font-size: 1.25rem;
   color: #808080;
 }
