@@ -25,7 +25,7 @@ const publicPages = ["/", "/sign-in/[[...index]]", "/sign-up/[[...index]]"];
 // on whether or not a visitor is signed in.
 //
 // https://docs.clerk.dev/frontend/react/signedin-and-signedout
-export const Header = () => (
+const Header = () => (
   <header className={styles.header}>
     <div className={styles.left}>
       <Link href="/">
