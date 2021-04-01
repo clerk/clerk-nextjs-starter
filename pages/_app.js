@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Layout from "../components/Layout";
 
 const clerkClientHost = process.env.NEXT_PUBLIC_CLERK_HOST;
 
@@ -27,20 +28,20 @@ function MyApp({ Component, pageProps }) {
       scriptUrl={process.env.NEXT_PUBLIC_CLERK_JS}
       navigate={(to) => router.push(to)}
     >
-      {publicPages.includes(router.pathname) ? (
-        <>
+      <Layout>
+        {publicPages.includes(router.pathname) ? (
           <Component {...pageProps} />
-        </>
-      ) : (
-        <>
-          <SignedIn>
-            <Component {...pageProps} />
-          </SignedIn>
-          <SignedOut>
-            <RedirectToSignIn />
-          </SignedOut>
-        </>
-      )}
+        ) : (
+          <>
+            <SignedIn>
+              <Component {...pageProps} />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        )}
+      </Layout>
     </ClerkProvider>
   );
 }
