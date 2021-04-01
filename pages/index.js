@@ -1,26 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
-
-// Header component using <SignedIn> & <SignedOut>.
-//
-// The SignedIn and SignedOut components are used to control rendering depending
-// on whether or not a visitor is signed in.
-//
-// https://docs.clerk.dev/frontend/react/signedin-and-signedout
-const Header = () => (
-  <header className={styles.header}>
-    <nav className={styles.nav}>
-      <SignedOut>
-        <Link href="/sign-in">Sign in</Link>
-      </SignedOut>
-      <SignedIn>
-        <UserButton userProfileURL="/user" afterSignOutAll="/" />
-      </SignedIn>
-    </nav>
-  </header>
-);
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
 const ClerkFeatures = () => (
   <Link href="/user">
@@ -136,7 +117,6 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <Main />
       <Footer />
     </div>

@@ -2,8 +2,7 @@ import "../styles/globals.css";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-
-const clerkClientHost = process.env.NEXT_PUBLIC_CLERK_HOST;
+import Layout from "../components/Layout";
 
 /**
  * List pages you want to be publicly accessible, or leave empty if
@@ -27,18 +26,20 @@ function MyApp({ Component, pageProps }) {
       scriptUrl={process.env.NEXT_PUBLIC_CLERK_JS}
       navigate={(to) => router.push(to)}
     >
-      {publicPages.includes(router.pathname) ? (
-        <Component {...pageProps} />
-      ) : (
-        <>
-          <SignedIn>
-            <Component {...pageProps} />
-          </SignedIn>
-          <SignedOut>
-            <RedirectToSignIn />
-          </SignedOut>
-        </>
-      )}
+      <Layout>
+        {publicPages.includes(router.pathname) ? (
+          <Component {...pageProps} />
+        ) : (
+          <>
+            <SignedIn>
+              <Component {...pageProps} />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        )}
+      </Layout>
     </ClerkProvider>
   );
 }
