@@ -36,8 +36,10 @@ const Header = withClerk(({ clerk }) => (
     <div className={styles.left}>
       <Link href="/">
         <a className={styles.logo}>
-          <Image src="/logo.svg" width="108" height="32" alt="Logo" />
-          <span>{clerk.environment.displayConfig.applicationName}</span>
+          <Image src="/logo.svg" width="32" height="32" alt="Logo" />
+          <span className={styles.appName}>
+            {clerk.environment.displayConfig.applicationName}
+          </span>
         </a>
       </Link>
     </div>

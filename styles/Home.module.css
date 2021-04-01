@@ -181,7 +181,16 @@
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 1.5rem;
+}
+
+.appName {
+  margin-left: 12px;
+  font-weight: bold;
+  color: #335bf1;
 }
 
 .links {
