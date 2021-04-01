@@ -1,5 +1,11 @@
 import "../styles/globals.css";
-import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  useClerk,
+  withClerk,
+} from "@clerk/clerk-react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
@@ -25,12 +31,13 @@ const publicPages = ["/", "/sign-in/[[...index]]", "/sign-up/[[...index]]"];
 // on whether or not a visitor is signed in.
 //
 // https://docs.clerk.dev/frontend/react/signedin-and-signedout
-const Header = () => (
+const Header = withClerk(({ clerk }) => (
   <header className={styles.header}>
     <div className={styles.left}>
       <Link href="/">
         <a className={styles.logo}>
           <Image src="/logo.svg" width="108" height="32" alt="Logo" />
+          <span>{clerk.environment.displayConfig.applicationName}</span>
         </a>
       </Link>
     </div>
@@ -43,7 +50,7 @@ const Header = () => (
       </SignedIn>
     </div>
   </header>
-);
+));
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
