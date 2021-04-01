@@ -1,17 +1,7 @@
 import "../styles/globals.css";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  useClerk,
-  withClerk,
-} from "@clerk/clerk-react";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import styles from "../styles/Home.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import { UserButton } from "@clerk/clerk-react";
 
 const clerkClientHost = process.env.NEXT_PUBLIC_CLERK_HOST;
 
@@ -24,33 +14,6 @@ const clerkClientHost = process.env.NEXT_PUBLIC_CLERK_HOST;
  *  "/foo/[...bar]"  for pages/foo/[...bar].js
  */
 const publicPages = ["/", "/sign-in/[[...index]]", "/sign-up/[[...index]]"];
-
-// Header component using <SignedIn> & <SignedOut>.
-//
-// The SignedIn and SignedOut components are used to control rendering depending
-// on whether or not a visitor is signed in.
-//
-// https://docs.clerk.dev/frontend/react/signedin-and-signedout
-const Header = () => (
-  <header className={styles.header}>
-    <div className={styles.left}>
-      <Link href="/">
-        <a className={styles.logo}>
-          <Image src="/logo.svg" width="32" height="32" alt="Logo" />
-          <span className={styles.appName}>Your application</span>
-        </a>
-      </Link>
-    </div>
-    <div className={styles.right}>
-      <SignedOut>
-        <Link href="/sign-in">Sign in</Link>
-      </SignedOut>
-      <SignedIn>
-        <UserButton userProfileURL="/user" afterSignOutAll="/" />
-      </SignedIn>
-    </div>
-  </header>
-);
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -66,13 +29,11 @@ function MyApp({ Component, pageProps }) {
     >
       {publicPages.includes(router.pathname) ? (
         <>
-          <Header />
           <Component {...pageProps} />
         </>
       ) : (
         <>
           <SignedIn>
-            <Header />
             <Component {...pageProps} />
           </SignedIn>
           <SignedOut>
