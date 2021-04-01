@@ -31,15 +31,13 @@ const publicPages = ["/", "/sign-in/[[...index]]", "/sign-up/[[...index]]"];
 // on whether or not a visitor is signed in.
 //
 // https://docs.clerk.dev/frontend/react/signedin-and-signedout
-const Header = withClerk(({ clerk }) => (
+const Header = () => (
   <header className={styles.header}>
     <div className={styles.left}>
       <Link href="/">
         <a className={styles.logo}>
           <Image src="/logo.svg" width="32" height="32" alt="Logo" />
-          <span className={styles.appName}>
-            {clerk.environment.displayConfig.applicationName}
-          </span>
+          <span className={styles.appName}>Your application</span>
         </a>
       </Link>
     </div>
@@ -52,7 +50,7 @@ const Header = withClerk(({ clerk }) => (
       </SignedIn>
     </div>
   </header>
-));
+);
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
