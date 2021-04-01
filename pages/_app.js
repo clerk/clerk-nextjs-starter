@@ -30,7 +30,7 @@ const Header = () => (
     <div className={styles.left}>
       <Link href="/">
         <a className={styles.logo}>
-          <Image src="/clerk-logo.svg" width="108" height="32" alt="Clerk" />
+          <Image src="/logo.svg" width="108" height="32" alt="Logo" />
         </a>
       </Link>
     </div>
