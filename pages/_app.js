@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Layout from "../components/Layout";
 
-const clerkClientHost = process.env.NEXT_PUBLIC_CLERK_HOST;
-
 /**
  * List pages you want to be publicly accessible, or leave empty if
  * every page requires authentication. Use this naming strategy:
