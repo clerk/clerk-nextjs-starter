@@ -118,9 +118,9 @@
 
 .cardContent {
   display: grid;
-  grid-template-columns: 24px 1fr 42px;
+  grid-template-columns: 24px 1fr;
   gap: 1em;
-  padding: 2em;
+  padding: 2em 1em;
   text-align: left;
   color: inherit;
   text-decoration: none;
@@ -184,6 +184,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .cardContent {
+    grid-template-columns: 24px 1fr 42px;
+    padding: 2em;
   }
 
   .links {
