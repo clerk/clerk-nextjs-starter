@@ -10,14 +10,14 @@
 
 .main {
   max-width: 540px;
-  padding: 3rem 0;
+  padding-top: 2rem;
   flex: 1;
 }
 
 .footer {
   max-width: 540px;
   color: #808080;
-  margin-bottom: 4em;
+  margin: 4em 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@
 .title {
   margin: 0;
   font-size: 1.75rem;
-  line-height: 1.1;
+  line-height: 35px;
 }
 
 .description {
@@ -59,7 +59,7 @@
 }
 
 .cards {
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
 
 .card {
@@ -121,7 +121,7 @@
   display: grid;
   grid-template-columns: 24px 1fr;
   gap: 1em;
-  padding: 2em 1em;
+  padding: 1.5em 1em;
   text-align: left;
   color: inherit;
   text-decoration: none;
@@ -150,15 +150,16 @@
 
 @media screen and (min-width: 768px) {
   .main {
-    padding-top: 5rem;
+    padding-top: 4.5rem;
   }
 
   .title {
+    line-height: 50px;
     font-size: 2.5rem;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .title a:hover,
@@ -168,7 +169,7 @@
   }
 
   .cards {
-    margin: 2rem 0;
+    margin: 4rem 0;
   }
 
   .card {
