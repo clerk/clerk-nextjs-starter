@@ -63,9 +63,7 @@
 }
 
 .card {
-  margin-bottom: 1em;
   min-height: 135px;
-
   border: 2px solid #fff;
   border-radius: 0.5em;
   transition: color 0.15s ease, border-color 0.15s ease;
@@ -151,6 +149,10 @@
   .title a:focus,
   .title a:active {
     text-decoration: underline;
+  }
+
+  .card {
+    margin-bottom: 1rem;
   }
 
   .card:hover,
