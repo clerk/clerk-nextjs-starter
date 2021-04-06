@@ -126,6 +126,10 @@
   text-decoration: none;
 }
 
+.cardContent img {
+  margin-top: 0.2rem;
+}
+
 .logo {
   height: 1.5rem;
 }
