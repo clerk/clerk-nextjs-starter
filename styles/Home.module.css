@@ -10,7 +10,7 @@
 
 .main {
   max-width: 540px;
-  padding: 5rem 0;
+  padding: 3rem 0;
   flex: 1;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .cards {
-  margin: 4em 0;
+  margin: 2em 0;
 }
 
 .card {
@@ -144,6 +144,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .main {
+    padding-top: 5rem;
+  }
+
   .title {
     font-size: 2.5rem;
   }
@@ -156,6 +160,10 @@
   .title a:focus,
   .title a:active {
     text-decoration: underline;
+  }
+
+  .cards {
+    margin: 4em 0;
   }
 
   .card {
