@@ -14,7 +14,15 @@ import Layout from "../components/Layout";
  */
 const publicPages = ["/", "/sign-in/[[...index]]", "/sign-up/[[...index]]"];
 
-function MyApp({ Component, pageProps }) {
+const RedirectToSignIn = () => {
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/sign-in");
+  });
+  return null;
+};
+
+const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   /**
    * If the current route is listed as public, render it directly.
@@ -42,14 +50,6 @@ function MyApp({ Component, pageProps }) {
       </Layout>
     </ClerkProvider>
   );
-}
-
-function RedirectToSignIn() {
-  const router = useRouter();
-  useEffect(() => {
-    router.push("/sign-in");
-  });
-  return null;
-}
+};
 
 export default MyApp;
