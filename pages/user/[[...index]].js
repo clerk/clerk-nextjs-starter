@@ -1,4 +1,5 @@
 import { UserProfile } from "@clerk/clerk-react";
-export default function UserProfilePage() {
-  return <UserProfile path="/user" routing="path" />;
-}
+
+const UserProfilePage = () => <UserProfile path="/user" routing="path" />;
+
+export default UserProfilePage;
