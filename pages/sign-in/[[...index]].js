@@ -1,7 +1,7 @@
 import { SignIn } from "@clerk/clerk-react";
 
 const SignInPage = () => (
-  <SignIn path="/sign-in" routing="path" signUpURL="/sign-up" />
+  <SignIn path="/sign-in" routing="path" />
 );
 
 export default SignInPage;
