@@ -1,7 +1,9 @@
-import "../styles/globals.css";
-import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
-import { useRouter } from "next/router";
-import Layout from "../components/Layout";
+import '../styles/globals.css'
+
+import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react'
+import { useRouter } from 'next/router'
+
+import Layout from '../components/Layout'
 
 /**
  * List pages you want to be publicly accessible, or leave empty if
@@ -22,7 +24,6 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <ClerkProvider
       frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}
-      scriptUrl={process.env.NEXT_PUBLIC_CLERK_JS}
       navigate={(to) => router.push(to)}
     >
       <Layout>
