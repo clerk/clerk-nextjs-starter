@@ -39,20 +39,21 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@clerk/clerk-react@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-1.5.0.tgz#20b5c2a9763668d42257ea34a07348fad00f473f"
-  integrity sha512-fKDfWOBbep3Gz0cLgeQf51Q7a+3sUQ+XiEO48GsFMAonUSw/nXbFdzOsTs5YBj3tQ00nnyBqaVkTrj3tJ6VB7Q==
+"@clerk/clerk-react@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-1.8.0.tgz#0d867cb2f270ece4a256785f768f33481b166cc5"
+  integrity sha512-zM/z5J++4ETDuqKuL8zKgKqwAfK8dKrcvy0L5/JuwzwIHIS7PIeS/ngcbS6L3XH6oAxs1c6Rz3JIdRA+yf2NlQ==
 
-"@clerk/clerk-sdk-node@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@clerk/clerk-sdk-node/-/clerk-sdk-node-0.3.0.tgz#352b345e0fe6308aafd3a1bd4f89b795e74e2d19"
-  integrity sha512-fnZTPoZ+ldf7Lrq6nx1dJq/Hpo03B87RqblPof58I80LF+IdvEBCEWyLVhNP6DeBaI4+YIgIetodWAebImwuJA==
+"@clerk/clerk-sdk-node@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@clerk/clerk-sdk-node/-/clerk-sdk-node-0.5.0.tgz#24fb5068844931ac41e431cbc92cf7cb72dea9b2"
+  integrity sha512-5Au+IR0caQwjgZjnTegAOeZcb5LDePF4abcZxFIJ0zt6z/lGiDfE5pvjbxFGbaR/Enx8iAAClYjr7hSXrXlEJw==
   dependencies:
     "@types/cookies" "^0.7.6"
     camelcase-keys "^6.2.2"
     cookies "^0.8.0"
     got "^11.8.1"
+    lodash "^4.17.21"
     snakecase-keys "^3.2.1"
 
 "@hapi/accept@5.0.1":
@@ -1572,6 +1573,11 @@ lodash@^4.17.13:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
