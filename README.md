@@ -8,7 +8,7 @@ You have two option to run the starter, we recommend the one click deployment wi
 
 ### Option 1 - One click deployment with Vercel
 
-You can use the following deployment button from Vercel, [this article on our blog](https://clerk.dev/blog/clerk-vercel-one-click-deployment?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) guides you step to step on how to do so.
+You can use the following deployment button from Vercel. For more detailed read our [official step by step guide](https://clerk.dev/blog/clerk-vercel-one-click-deployment?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter).
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/clerkinc/clerk-nextjs-starter&integration-ids=oac_7uYNbc9CdDAZmNqbt3LEkO3a&external-id=starter)
 
