@@ -1,6 +1,6 @@
 # Clerk - Next.js starter repository
 
-This repository shows an example use case for how you can authenticate your users using [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) as an authentication provider on your Next.js application.
+This repository shows an example about how to add user authenticating to your Next.js application using [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter).
 
 ## Running the starter
 
@@ -19,9 +19,10 @@ To run the example locally you need to:
 1. Click [**"Use this template"**](https://github.com/clerkinc/clerk-nextjs-starter/generate) to create a copy of this repository on your GitHub account.
 2. Clone your repository locally.
 3. Sign up for a Clerk account at [Clerk.dev](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter).
-4. Setup the required Clerk Frontend API variable from your Clerk project as shown at [the example env file](./.env.local.sample).
-5. `yarn` to install the required dependencies.
-6. `yarn dev` to launch the development server.
+4. Go to [Clerk's dashboard](https://dashboard.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) and create an application.
+5. Setup the required Clerk Frontend API variable from your Clerk project as shown at [the example env file](./.env.local.sample).
+6. `yarn` to install the required dependencies.
+7. `yarn dev` to launch the development server.
 
 ## Contact
 
