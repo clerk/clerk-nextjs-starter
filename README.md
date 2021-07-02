@@ -17,8 +17,8 @@ You can use the following deployment button from Vercel. For more detailed read 
 To run the example locally you need to:
 
 1. Click [**"Use this template"**](https://github.com/clerkinc/clerk-nextjs-starter/generate) to create a copy of this repository on your GitHub account.
-2. Clone your repository locally.
-3. Sign up for a Clerk account at [Clerk.dev](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter).
+2. Clone your repository.
+3. Sign up at [Clerk.dev](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter).
 4. Go to [Clerk's dashboard](https://dashboard.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) and create an application.
 5. Setup the required Clerk Frontend API variable from your Clerk project as shown at [the example env file](./.env.local.sample).
 6. `yarn` to install the required dependencies.
