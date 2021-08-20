@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 
-import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react'
+import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/nextjs'
 import { useRouter } from 'next/router'
 
 import Layout from '../components/Layout'
@@ -22,10 +22,7 @@ const MyApp = ({ Component, pageProps }) => {
    * Otherwise, use Clerk to require authentication.
    */
   return (
-    <ClerkProvider
-      frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}
-      navigate={(to) => router.push(to)}
-    >
+    <ClerkProvider>
       <Layout>
         {publicPages.includes(router.pathname) ? (
           <Component {...pageProps} />
