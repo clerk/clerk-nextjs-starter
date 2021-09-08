@@ -1,7 +1,7 @@
-import styles from "../styles/Header.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import styles from '../styles/Header.module.css'
+import Image from 'next/image'
+import Link from 'next/link'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 // Header component using <SignedIn> & <SignedOut>.
 //
@@ -24,10 +24,10 @@ const Header = () => (
         <Link href="/sign-in">Sign in</Link>
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        <UserButton userProfileURL="/user" afterSignOutAll="/" />
       </SignedIn>
     </div>
   </header>
-);
+)
 
-export default Header;
+export default Header
