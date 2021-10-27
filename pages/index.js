@@ -1,8 +1,8 @@
-import React from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
-import { SignedIn, SignedOut } from '@clerk/nextjs'
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const ClerkFeatures = () => (
   <Link href="/user">
@@ -20,7 +20,7 @@ const ClerkFeatures = () => (
       </div>
     </a>
   </Link>
-)
+);
 
 const SignupLink = () => (
   <Link href="/sign-up">
@@ -38,7 +38,7 @@ const SignupLink = () => (
       </div>
     </a>
   </Link>
-)
+);
 
 const apiSample = `import { withSession } from '@clerk/nextjs/api'
 
@@ -49,7 +49,7 @@ export default withSession((req, res) => {
   } else {
     res.json({ id: null })
   }
-})`
+})`;
 
 // Main component using <SignedIn> & <SignedOut>.
 //
@@ -73,8 +73,8 @@ const Main = () => (
       </div>
 
       <div className={styles.card}>
-        <Link href="https://dashboard.clerk.dev">
-          <a target="_blank" rel="noreferrer" className={styles.cardContent}>
+        <Link href="https://dashboard.clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter">
+          <a target="_blank" rel="noopener" className={styles.cardContent}>
             <img src="/icons/settings.svg" />
             <div>
               <h3>Configure settings for your app</h3>
@@ -94,49 +94,49 @@ const Main = () => (
     <APIRequest />
 
     <div className={styles.links}>
-      <Link href="https://docs.clerk.dev">
-        <a target="_blank" rel="noreferrer" className={styles.link}>
+      <Link href="https://docs.clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter">
+        <a target="_blank" rel="noopener" className={styles.link}>
           <span className={styles.linkText}>Read Clerk documentation</span>
         </a>
       </Link>
       <Link href="https://nextjs.org/docs">
-        <a target="_blank" rel="noreferrer" className={styles.link}>
+        <a target="_blank" rel="noopener" className={styles.link}>
           <span className={styles.linkText}>Read NextJS documentation</span>
         </a>
       </Link>
     </div>
   </main>
-)
+);
 
 const APIRequest = () => {
   React.useEffect(() => {
     if (window.Prism) {
-      window.Prism.highlightAll()
+      window.Prism.highlightAll();
     }
-  })
+  });
   const [response, setResponse] = React.useState(
-    '// Click above to run the request'
-  )
+    "// Click above to run the request"
+  );
   const makeRequest = async () => {
-    setResponse('// Loading...')
+    setResponse("// Loading...");
 
     try {
-      const res = await fetch('/api/getAuthenticatedUserId')
-      const body = await res.json()
-      setResponse(JSON.stringify(body, null, '  '))
+      const res = await fetch("/api/getAuthenticatedUserId");
+      const body = await res.json();
+      setResponse(JSON.stringify(body, null, "  "));
     } catch (e) {
       setResponse(
-        '// There was an error with the request. Please contact support@clerk.dev'
-      )
+        "// There was an error with the request. Please contact support@clerk.dev"
+      );
     }
-  }
+  };
   return (
     <div className={styles.backend}>
       <h2>API request example</h2>
       <div className={styles.card}>
         <button
           target="_blank"
-          rel="noreferrer"
+          rel="noopener"
           className={styles.cardContent}
           onClick={() => makeRequest()}
         >
@@ -172,22 +172,25 @@ const APIRequest = () => {
         <code className="language-js">{apiSample}</code>
       </pre>
     </div>
-  )
-}
+  );
+};
 
 // Footer component
 const Footer = () => (
   <footer className={styles.footer}>
-    Powered by{' '}
-    <a href="https://clerk.dev" target="_blank">
+    Powered by{" "}
+    <a
+      href="https://clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter"
+      target="_blank"
+    >
       <img src="/clerk.svg" alt="Clerk.dev" className={styles.logo} />
     </a>
     +
-    <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
+    <a href="https://nextjs.org/" target="_blank" rel="noopener">
       <img src="/nextjs.svg" alt="Next.js" className={styles.logo} />
     </a>
   </footer>
-)
+);
 
 const Home = () => (
   <div className={styles.container}>
@@ -202,6 +205,6 @@ const Home = () => (
     <Main />
     <Footer />
   </div>
-)
+);
 
-export default Home
+export default Home;
