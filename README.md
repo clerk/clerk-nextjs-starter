@@ -1,6 +1,6 @@
 # Clerk and Next.js Example
 
-This example shows how to use [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=nextjs-examples&utm_campaign=nextjs) with Next.js. The example features adding sign up, sign in, profile management, and an authenticated API route to your Next.js application.
+This example shows how to use [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) with Next.js. The example features adding sign up, sign in, profile management, and an authenticated API route to your Next.js application.
 
 ## Demo
 
@@ -34,6 +34,6 @@ To run the example locally you need to:
 
 To learn more about Clerk.dev and Next.js, take a look at the following resources:
 
-- [Quick start](https://docs.clerk.dev/get-started/nextjs)
-- [Clerk.dev Documentation](https://docs.clerk.dev/) - learn about Clerk.dev features and API.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Quick start](https://docs.clerk.dev/get-started/nextjs?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter)
+- [Clerk.dev Documentation](https://docs.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) - learn about Clerk.dev features and API.
+- [Next.js Documentation](https://nextjs.org/docs?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) - learn about Next.js features and API.
