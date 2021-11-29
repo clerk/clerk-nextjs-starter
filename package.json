@@ -1,4 +1,6 @@
 {
+  "name": "clerk-nextjs-starter",
+  "description": "Use Clerk's authentication and user management with Next.js",
   "private": true,
   "scripts": {
     "dev": "next dev",
