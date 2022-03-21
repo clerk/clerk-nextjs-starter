@@ -235,3 +235,11 @@
   font-size: 80%;
   border-radius: 0.5rem;
 }
+
+.preContainer {
+  margin: 4rem 0;
+}
+
+.preContainer .description {
+  margin: 1rem 0;
+}

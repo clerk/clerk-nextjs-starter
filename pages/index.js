@@ -3,6 +3,9 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { withServerSideAuth } from "@clerk/nextjs/ssr";
+
+export const getServerSideProps = withServerSideAuth();
 
 const ClerkFeatures = () => (
   <Link href="/user">
@@ -10,9 +13,24 @@ const ClerkFeatures = () => (
       <img src="/icons/layout.svg" />
       <div>
         <h3>Explore features provided by Clerk</h3>
+        <p>Interact with the user button, user profile, and more to preview what your users will see</p>
+      </div>
+      <div className={styles.arrow}>
+        <img src="/icons/arrow-right.svg" />
+      </div>
+    </a>
+  </Link>
+);
+
+const SSRDemoLink = () => (
+  <Link href="/ssr-demo">
+    <a className={styles.cardContent}>
+      <img src="/icons/layout.svg" />
+      <div>
+        <h3>Visit the SSR demo page</h3>
         <p>
-          Interact with the user button, user profile, and more to preview what
-          your users will see
+          See how Clerk hydrates the auth state during SSR and CSR, enabling server-side generation even for
+          authenticated pages
         </p>
       </div>
       <div className={styles.arrow}>
@@ -28,10 +46,7 @@ const SignupLink = () => (
       <img src="/icons/user-plus.svg" />
       <div>
         <h3>Sign up for an account</h3>
-        <p>
-          Sign up and sign in to explore all the features provided by Clerk
-          out-of-the-box
-        </p>
+        <p>Sign up and sign in to explore all the features provided by Clerk out-of-the-box</p>
       </div>
       <div className={styles.arrow}>
         <img src="/icons/arrow-right.svg" />
@@ -40,16 +55,19 @@ const SignupLink = () => (
   </Link>
 );
 
-const apiSample = `import { withSession } from '@clerk/nextjs/api'
+const apiSample = `
+import { withAuth } from "@clerk/nextjs/api";
 
-export default withSession((req, res) => {
-  res.statusCode = 200
-  if (req.session) {
-    res.json({ id: req.session.userId })
-  } else {
-    res.json({ id: null })
+export default withAuth((req, res) => {
+  const { sessionId } = req.auth;
+
+  if (!sessionId) {
+    return res.status(401).json({ id: null });
   }
-})`;
+
+  return res.status(200).json({ id: sessionId });
+});
+`.trim();
 
 // Main component using <SignedIn> & <SignedOut>.
 //
@@ -63,14 +81,19 @@ const Main = () => (
     <p className={styles.description}>Sign up for an account to get started</p>
 
     <div className={styles.cards}>
-      <div className={styles.card}>
-        <SignedIn>
+      <SignedIn>
+        <div className={styles.card}>
           <ClerkFeatures />
-        </SignedIn>
-        <SignedOut>
-          <SignupLink />
-        </SignedOut>
+        </div>
+      </SignedIn>
+      <div className={styles.card}>
+        <SSRDemoLink />
       </div>
+      <SignedOut>
+        <div className={styles.card}>
+          <SignupLink />
+        </div>
+      </SignedOut>
 
       <div className={styles.card}>
         <Link href="https://dashboard.clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter">
@@ -78,10 +101,7 @@ const Main = () => (
             <img src="/icons/settings.svg" />
             <div>
               <h3>Configure settings for your app</h3>
-              <p>
-                Visit Clerk to manage instances and configure settings for user
-                management, theme, and more
-              </p>
+              <p>Visit Clerk to manage instances and configure settings for user management, theme, and more</p>
             </div>
             <div className={styles.arrow}>
               <img src="/icons/arrow-right.svg" />
@@ -114,9 +134,7 @@ const APIRequest = () => {
       window.Prism.highlightAll();
     }
   });
-  const [response, setResponse] = React.useState(
-    "// Click above to run the request"
-  );
+  const [response, setResponse] = React.useState("// Click above to run the request");
   const makeRequest = async () => {
     setResponse("// Loading...");
 
@@ -125,28 +143,18 @@ const APIRequest = () => {
       const body = await res.json();
       setResponse(JSON.stringify(body, null, "  "));
     } catch (e) {
-      setResponse(
-        "// There was an error with the request. Please contact support@clerk.dev"
-      );
+      setResponse("// There was an error with the request. Please contact support@clerk.dev");
     }
   };
   return (
     <div className={styles.backend}>
       <h2>API request example</h2>
       <div className={styles.card}>
-        <button
-          target="_blank"
-          rel="noopener"
-          className={styles.cardContent}
-          onClick={() => makeRequest()}
-        >
+        <button target="_blank" rel="noopener" className={styles.cardContent} onClick={() => makeRequest()}>
           <img src="/icons/server.svg" />
           <div>
             <h3>fetch('/api/getAuthenticatedUserId')</h3>
-            <p>
-              Retrieve the user ID of the signed in user, or null if there is no
-              user
-            </p>
+            <p>Retrieve the user ID of the signed in user, or null if there is no user</p>
           </div>
           <div className={styles.arrow}>
             <img src="/icons/download.svg" />
@@ -156,12 +164,8 @@ const APIRequest = () => {
       <h4>
         Response
         <em>
-          <SignedIn>
-            You are signed in, so the request will return your user ID
-          </SignedIn>
-          <SignedOut>
-            You are signed out, so the request will return null
-          </SignedOut>
+          <SignedIn>You are signed in, so the request will return your user ID</SignedIn>
+          <SignedOut>You are signed out, so the request will return null</SignedOut>
         </em>
       </h4>
       <pre>
@@ -179,10 +183,7 @@ const APIRequest = () => {
 const Footer = () => (
   <footer className={styles.footer}>
     Powered by{" "}
-    <a
-      href="https://clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter"
-      target="_blank"
-    >
+    <a href="https://clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter" target="_blank">
       <img src="/clerk.svg" alt="Clerk.dev" className={styles.logo} />
     </a>
     +
@@ -197,10 +198,7 @@ const Home = () => (
     <Head>
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      ></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
     </Head>
     <Main />
     <Footer />
