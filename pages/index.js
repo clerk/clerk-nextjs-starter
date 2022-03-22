@@ -40,6 +40,21 @@ const SSRDemoLink = () => (
   </Link>
 );
 
+const MiddlewareProtectedPageLink = () => (
+  <Link href="/protected-pages">
+    <a className={styles.cardContent}>
+      <img src="/icons/layout.svg" />
+      <div>
+        <h3>Visit a page protected by _middleware</h3>
+        <p>Find out how you can use Nextjs middleware and Clerk stateless auth to protect entire routes at the edge</p>
+      </div>
+      <div className={styles.arrow}>
+        <img src="/icons/arrow-right.svg" />
+      </div>
+    </a>
+  </Link>
+);
+
 const SignupLink = () => (
   <Link href="/sign-up">
     <a className={styles.cardContent}>
@@ -88,6 +103,9 @@ const Main = () => (
       </SignedIn>
       <div className={styles.card}>
         <SSRDemoLink />
+      </div>
+      <div className={styles.card}>
+        <MiddlewareProtectedPageLink />
       </div>
       <SignedOut>
         <div className={styles.card}>
