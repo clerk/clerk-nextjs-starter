@@ -2,7 +2,7 @@ import { withEdgeMiddlewareAuth } from "@clerk/nextjs/edge-middleware";
 import { NextResponse } from "next/server";
 
 export default withEdgeMiddlewareAuth((request) => {
-  const { sessionId } = request.auth;
+  const { sessionId, userId } = request.auth;
 
   if (!sessionId) {
     const destination = request.nextUrl.href;
