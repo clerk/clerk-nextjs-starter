@@ -4,13 +4,15 @@ import { useUser } from "@clerk/nextjs";
 import React from "react";
 
 const mockGetPosts = (userId) => {
-  return Promise.resolve([{ title: "A Post", content: "Hello from Clerk + Remix" }]);
+  return Promise.resolve([{ title: "An Example Post", content: "Hello from Clerk + Next.js", userId }]);
 };
 
 export const getServerSideProps = withServerSideAuth(
   async ({ req, resolvedUrl }) => {
-    const { sessionId, getToken, userId } = req.auth;
-    console.log("Use getAuth() to access the auth state:", userId, sessionId, getToken);
+    // Access the auth state on the request object
+    const { userId } = req.auth;
+
+    console.log("Auth state:", req.auth);
 
     if (!userId) {
       return { redirect: { destination: "/sign-up?redirect_url=" + resolvedUrl } };
@@ -41,9 +43,10 @@ const SSRDemoPage = ({ posts }) => {
         </p>
 
         <div className={styles.preContainer}>
-          <h2>Data returned from getServerSideProps</h2>
-          <p className={styles.description}>
-            The loader uses getAuth to get the userId and fetch the posts from a remote database
+          <h2 className={styles.subtitle}>Data returned from getServerSideProps</h2>
+          <p className={styles.instructions}>
+            `<strong>getServerSideProps</strong>` uses `<strong>withServerSideAuth</strong>` to get the userId and fetch
+            the posts from a remote database
           </p>
           <pre>
             <code className="language-js">{JSON.stringify({ posts }, null, 2)}</code>
@@ -51,9 +54,10 @@ const SSRDemoPage = ({ posts }) => {
         </div>
 
         <div className={styles.preContainer}>
-          <h2>useUser hook</h2>
-          <p className={styles.description}>
-            Passing {`{ loadeUser: true }`} to the root loader makes all Clerk data available both during SSR and CSR
+          <h2 className={styles.subtitle}>useUser hook</h2>
+          <p className={styles.instructions}>
+            Passing <strong>{`{ loadUser: true }`}</strong> to the root loader makes all Clerk data available both
+            during SSR and CSR
           </p>
           <pre>
             <code className="language-js">{JSON.stringify({ isLoaded })}</code>

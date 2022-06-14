@@ -207,7 +207,11 @@ const APIRequest = () => {
 const Footer = () => (
   <footer className={styles.footer}>
     Powered by{" "}
-    <a href="https://clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter" target="_blank">
+    <a
+      href="https://clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter"
+      target="_blank"
+      rel="noopener"
+    >
       <img src="/clerk.svg" alt="Clerk" className={styles.logo} />
     </a>
     +

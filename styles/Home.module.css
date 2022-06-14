@@ -41,17 +41,28 @@
 .title {
   margin: 0;
   font-size: 1.75rem;
-  line-height: 35px;
+  line-height: 1.2;
 }
 
 .description {
   margin-top: 0.5rem;
   color: #808080;
+  line-height: 1.4;
 }
 
 .title,
 .description {
   text-align: center;
+}
+
+.subtitle {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.instructions {
+  margin-top: 0;
+  color: #808080;
 }
 
 .arrow {
@@ -128,6 +139,12 @@
 
 .logo {
   height: 1.5rem;
+  transition: transform 0.2s linear;
+}
+
+.logo:hover,
+.logo:focus {
+  transform: translateY(-4px);
 }
 
 .links {
@@ -149,7 +166,6 @@
   }
 
   .title {
-    line-height: 50px;
     font-size: 2.5rem;
   }
 
@@ -161,10 +177,6 @@
   .title a:focus,
   .title a:active {
     text-decoration: underline;
-  }
-
-  .cards {
-    margin: 4rem 0;
   }
 
   .card {
