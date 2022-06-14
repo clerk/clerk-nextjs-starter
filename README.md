@@ -1,26 +1,18 @@
-# Clerk and Next.js Example
+# Clerk + Next.js Starter
 
-This example shows how to use [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) with Next.js. The example features adding sign up, sign in, profile management, and an authenticated API route to your Next.js application.
-
----
-
-**Clerk is Hiring!**
-
-Would you like to work on Open Source software and help maintain this repository? Apply today https://apply.workable.com/clerk-dev/.
-
----
+This example shows how to use [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) with Next.js. The example Next.js application features adding sign up, sign in, profile management, and an authenticated API route.
 
 ## Demo
 
 A hosted demo of this example is available at [clerk-nextjs-example.vercel.app](https://clerk-nextjs-example.vercel.app)
 
-## Deploy your own
+### Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+Deploy the example directly from GitHub using [Vercel](https://vercel.com):
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/clerkinc/clerk-nextjs-starter&integration-ids=oac_7uYNbc9CdDAZmNqbt3LEkO3a)
 
-## How to use
+## Running the starter
 
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
@@ -32,16 +24,20 @@ yarn create next-app --example with-clerk with-clerk-app
 
 To run the example locally you need to:
 
-1. Sign up at [Clerk.dev](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter).
+1. Sign up for a Clerk account at https://clerk.dev.
 2. Go to [Clerk's dashboard](https://dashboard.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) and create an application.
-3. Set the required Clerk environment variables from your Clerk project as shown at [the example env file](./.env.local.sample).
-4. `yarn` to install the required dependencies.
-5. `yarn dev` to launch the development server.
+3. Set the required Clerk environment variables as shown in [the example env file](./.env.local.sample).
+4. `npm install` the required dependencies.
+5. `npm run dev` to launch the development server.
 
-## Learn More
+## Learn more
 
-To learn more about Clerk.dev and Next.js, take a look at the following resources:
+To learn more about Clerk and Next.js, check out the following resources:
 
-- [Quick start](https://docs.clerk.dev/get-started/nextjs?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter)
-- [Clerk.dev Documentation](https://docs.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) - learn about Clerk.dev features and API.
-- [Next.js Documentation](https://nextjs.org/docs?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter) - learn about Next.js features and API.
+- [Quickstart: Get started with Next.js and Clerk](https://clerk.dev/docs/quickstarts/get-started-with-nextjs?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter)
+- [Clerk Documentation](https://clerk.dev/docs?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter)
+- [Next.js Documentation](https://nextjs.org/docs)
+
+## Contact
+
+If you need support or have anything you would like to ask, please reach out in our [Discord channel](https://discord.com/invite/b5rXHjAg7A). We'd love to chat!
