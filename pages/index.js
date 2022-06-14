@@ -1,16 +1,15 @@
-import React from "react";
-import Head from "next/head";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import styles from "/styles/Home.module.css";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { withServerSideAuth } from "@clerk/nextjs/ssr";
+import React from "react";
+import Link from "next/link";
 
 export const getServerSideProps = withServerSideAuth();
 
 const ClerkFeatures = () => (
   <Link href="/user">
     <a className={styles.cardContent}>
-      <img src="/icons/layout.svg" />
+      <img alt="Explore Clerk components" src="/icons/layout.svg" />
       <div>
         <h3>Explore features provided by Clerk</h3>
         <p>Interact with the user button, user profile, and more to preview what your users will see</p>
@@ -25,7 +24,7 @@ const ClerkFeatures = () => (
 const SSRDemoLink = () => (
   <Link href="/ssr-demo">
     <a className={styles.cardContent}>
-      <img src="/icons/layout.svg" />
+      <img alt="SSR demo" src="/icons/sparkles.svg" />
       <div>
         <h3>Visit the SSR demo page</h3>
         <p>
@@ -41,24 +40,24 @@ const SSRDemoLink = () => (
 );
 
 const MiddlewareProtectedPageLink = () => (
-  <a href="/protected-pages">
+  <Link href="/protected-pages">
     <a className={styles.cardContent}>
-      <img src="/icons/layout.svg" />
+      <img alt="Protected pagefvisi" src="/icons/shield-check.svg" />
       <div>
-        <h3>Visit a page protected by _middleware</h3>
-        <p>Find out how you can use Nextjs middleware and Clerk stateless auth to protect entire routes at the edge</p>
+        <h3>Visit page protected by _middleware</h3>
+        <p>Find out how you can use Next.js middleware and Clerk stateless auth to protect entire routes at the edge</p>
       </div>
       <div className={styles.arrow}>
         <img src="/icons/arrow-right.svg" />
       </div>
     </a>
-  </a>
+  </Link>
 );
 
 const SignupLink = () => (
   <Link href="/sign-up">
     <a className={styles.cardContent}>
-      <img src="/icons/user-plus.svg" />
+      <img alt="Sign up" src="/icons/user-plus.svg" />
       <div>
         <h3>Sign up for an account</h3>
         <p>Sign up and sign in to explore all the features provided by Clerk out-of-the-box</p>
@@ -84,29 +83,34 @@ export default withAuth((req, res) => {
 });
 `.trim();
 
-// Main component using <SignedIn> & <SignedOut>.
+// Main component using <SignedIn> and <SignedOut>.
 //
-// The SignedIn and SignedOut components are used to control rendering depending
-// on whether or not a visitor is signed in.
+// The SignedIn and SignedOut components are used to control rendering
+// depending on whether or not a visitor is signed in.
 //
-// https://docs.clerk.dev/frontend/react/signedin-and-signedout
+// https://clerk.dev/docs/component-reference/signed-in
 const Main = () => (
   <main className={styles.main}>
     <h1 className={styles.title}>Welcome to your new app</h1>
-    <p className={styles.description}>Sign up for an account to get started</p>
+    <SignedIn>
+      <p className={styles.description}>You have successfully signed in</p>
+    </SignedIn>
+    <SignedOut>
+      <p className={styles.description}>Sign up for an account to get started</p>
+    </SignedOut>
 
     <div className={styles.cards}>
       <SignedIn>
         <div className={styles.card}>
+          <SSRDemoLink />
+        </div>
+        <div className={styles.card}>
+          <MiddlewareProtectedPageLink />
+        </div>
+        <div className={styles.card}>
           <ClerkFeatures />
         </div>
       </SignedIn>
-      <div className={styles.card}>
-        <SSRDemoLink />
-      </div>
-      <div className={styles.card}>
-        <MiddlewareProtectedPageLink />
-      </div>
       <SignedOut>
         <div className={styles.card}>
           <SignupLink />
@@ -114,7 +118,7 @@ const Main = () => (
       </SignedOut>
 
       <div className={styles.card}>
-        <Link href="https://dashboard.clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter">
+        <Link href="https://dashboard.clerk.dev/last-active?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter">
           <a target="_blank" rel="noopener" className={styles.cardContent}>
             <img src="/icons/settings.svg" />
             <div>
@@ -129,10 +133,12 @@ const Main = () => (
       </div>
     </div>
 
-    <APIRequest />
+    <SignedIn>
+      <APIRequest />
+    </SignedIn>
 
     <div className={styles.links}>
-      <Link href="https://docs.clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter">
+      <Link href="https://clerk.dev/docs?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter">
         <a target="_blank" rel="noopener" className={styles.link}>
           <span className={styles.linkText}>Read Clerk documentation</span>
         </a>
@@ -202,7 +208,7 @@ const Footer = () => (
   <footer className={styles.footer}>
     Powered by{" "}
     <a href="https://clerk.dev?utm_source=github&utm_medium=starter_repos&utm_campaign=nextjs_starter" target="_blank">
-      <img src="/clerk.svg" alt="Clerk.dev" className={styles.logo} />
+      <img src="/clerk.svg" alt="Clerk" className={styles.logo} />
     </a>
     +
     <a href="https://nextjs.org/" target="_blank" rel="noopener">
@@ -213,11 +219,6 @@ const Footer = () => (
 
 const Home = () => (
   <div className={styles.container}>
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    </Head>
     <Main />
     <Footer />
   </div>
