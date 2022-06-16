@@ -17,9 +17,9 @@ Deploy the example directly from GitHub using [Vercel](https://vercel.com):
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npx create-next-app --example with-clerk with-clerk-app
+npx create-next-app --example https://github.com/clerkinc/clerk-nextjs-starter
 # or
-yarn create next-app --example with-clerk with-clerk-app
+yarn create next-app --example https://github.com/clerkinc/clerk-nextjs-starter
 ```
 
 To run the example locally you need to:
