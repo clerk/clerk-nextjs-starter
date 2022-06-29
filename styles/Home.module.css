@@ -79,7 +79,6 @@
 }
 
 .card {
-  min-height: 135px;
   border: 2px solid #fff;
   border-radius: 0.5em;
   transition: color 0.15s ease, border-color 0.15s ease;
@@ -122,14 +121,15 @@
 }
 
 .cardContent {
-  background: transparent;
-  border: none;
   display: grid;
+  width: 100%;
   grid-template-columns: 24px 1fr;
   gap: 1em;
   padding: 1.5em 1em;
-  text-align: left;
+  background: transparent;
+  border: none;
   color: inherit;
+  text-align: left;
   text-decoration: none;
 }
 
@@ -223,16 +223,20 @@
 .backend {
   margin-bottom: 4rem;
 }
+
 .backend h2 {
   text-align: center;
 }
+
 .backend h4 {
   margin-bottom: 0;
 }
+
 .backend h4 em {
   font-weight: normal;
   margin-left: 0.5rem;
 }
+
 .backend pre {
   font-size: 80%;
   border-radius: 0.5rem;
