@@ -4,7 +4,7 @@ This example shows how to use [Clerk](https://www.clerk.dev/?utm_source=github&u
 
 ## Demo
 
-A hosted demo of this example is available at [clerk-nextjs-example.vercel.app](https://clerk-nextjs-example.vercel.app)
+A hosted demo of this example is available at [clerk-nextjs-starter.vercel.app](https://clerk-nextjs-starter.vercel.app/)
 
 ### Deploy your own
 
