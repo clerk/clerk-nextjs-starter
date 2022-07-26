@@ -105,12 +105,12 @@ const Main = () => (
           <SSRDemoLink />
         </div>
         <div className={styles.card}>
-          <MiddlewareProtectedPageLink />
-        </div>
-        <div className={styles.card}>
           <ClerkFeatures />
         </div>
       </SignedIn>
+      <div className={styles.card}>
+        <MiddlewareProtectedPageLink />
+      </div>
       <SignedOut>
         <div className={styles.card}>
           <SignupLink />
