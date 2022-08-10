@@ -1,4 +1,4 @@
-import styles from "/styles/Home.module.css";
+import styles from "/styles/Shared.module.css";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { withServerSideAuth } from "@clerk/nextjs/ssr";
 import React from "react";

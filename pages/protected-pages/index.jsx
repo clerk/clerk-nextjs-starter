@@ -1,4 +1,4 @@
-import styles from "./../../styles/Home.module.css";
+import styles from "/styles/Shared.module.css";
 import React from "react";
 
 const ProtectedPage = () => {

@@ -1,10 +1,11 @@
-import Header from './Header'
+import styles from "/styles/Shared.module.css";
+import Header from "./Header";
 
 const Layout = ({ children }) => (
   <>
     <Header />
-    <main>{children}</main>
+    <main className={styles.container}>{children}</main>
   </>
-)
+);
 
-export default Layout
+export default Layout;
