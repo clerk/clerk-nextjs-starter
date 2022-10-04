@@ -1,10 +1,7 @@
 import styles from "/styles/Shared.module.css";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { withServerSideAuth } from "@clerk/nextjs/ssr";
 import React from "react";
 import Link from "next/link";
-
-export const getServerSideProps = withServerSideAuth();
 
 const ClerkFeatures = () => (
   <Link href="/user">
@@ -39,21 +36,6 @@ const SSRDemoLink = () => (
   </Link>
 );
 
-const MiddlewareProtectedPageLink = () => (
-  <Link href="/protected-pages">
-    <a className={styles.cardContent}>
-      <img alt="Protected pagefvisi" src="/icons/shield-check.svg" />
-      <div>
-        <h3>Visit page protected by _middleware</h3>
-        <p>Find out how you can use Next.js middleware and Clerk stateless auth to protect entire routes at the edge</p>
-      </div>
-      <div className={styles.arrow}>
-        <img src="/icons/arrow-right.svg" />
-      </div>
-    </a>
-  </Link>
-);
-
 const SignupLink = () => (
   <Link href="/sign-up">
     <a className={styles.cardContent}>
@@ -70,17 +52,16 @@ const SignupLink = () => (
 );
 
 const apiSample = `
-import { withAuth } from "@clerk/nextjs/api";
+import { getAuth } from "@clerk/nextjs/server";
 
-export default withAuth((req, res) => {
-  const { sessionId, userId } = req.auth;
+export default function handler(req, res) {
+  const { sessionId, userId } = getAuth(req);
 
   if (!sessionId) {
     return res.status(401).json({ id: null });
   }
-
   return res.status(200).json({ id: userId });
-});
+};
 `.trim();
 
 // Main component using <SignedIn> and <SignedOut>.
@@ -108,9 +89,6 @@ const Main = () => (
           <ClerkFeatures />
         </div>
       </SignedIn>
-      {/*<div className={styles.card}>*/}
-      {/*  <MiddlewareProtectedPageLink />*/}
-      {/*</div>*/}
       <SignedOut>
         <div className={styles.card}>
           <SignupLink />

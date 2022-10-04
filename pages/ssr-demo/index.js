@@ -1,5 +1,5 @@
 import styles from "/styles/Shared.module.css";
-import { withServerSideAuth } from "@clerk/nextjs/ssr";
+import { clerkClient, getAuth, buildClerkProps } from "@clerk/nextjs/server";
 import { useUser } from "@clerk/nextjs";
 import React from "react";
 
@@ -7,22 +7,20 @@ const mockGetPosts = (userId) => {
   return Promise.resolve([{ title: "An Example Post", content: "Hello from Clerk + Next.js", userId }]);
 };
 
-export const getServerSideProps = withServerSideAuth(
-  async ({ req, resolvedUrl }) => {
-    // Access the auth state on the request object
-    const { userId } = req.auth;
+export const getServerSideProps = async ({ req, resolvedUrl }) => {
+  // Access the auth state on the request object
+  const { userId } = getAuth(req);
+  const user = userId ? await clerkClient.users.getUser(userId) : null;
 
-    console.log("Auth state:", req.auth);
+  console.log("Auth state:", req.auth);
 
-    if (!userId) {
-      return { redirect: { destination: "/sign-up?redirect_url=" + resolvedUrl } };
-    }
+  if (!userId) {
+    return { redirect: { destination: "/sign-up?redirect_url=" + resolvedUrl } };
+  }
 
-    const posts = await mockGetPosts(userId);
-    return { props: { posts } };
-  },
-  { loadUser: true }
-);
+  const posts = await mockGetPosts(userId);
+  return { props: { ...buildClerkProps(req, { user }), posts } };
+};
 
 const SSRDemoPage = ({ posts }) => {
   const { isSignedIn, isLoaded, user } = useUser();
@@ -45,8 +43,8 @@ const SSRDemoPage = ({ posts }) => {
         <div className={styles.preContainer}>
           <h2 className={styles.subtitle}>Data returned from getServerSideProps</h2>
           <p className={styles.instructions}>
-            `<strong>getServerSideProps</strong>` uses `<strong>withServerSideAuth</strong>` to get the userId and fetch
-            the posts from a remote database
+            `<strong>getServerSideProps</strong>` uses `<strong>getAuth</strong>` to get the userId and fetch the posts
+            from a remote database
           </p>
           <pre>
             <code className="language-js">{JSON.stringify({ posts }, null, 2)}</code>
@@ -56,8 +54,8 @@ const SSRDemoPage = ({ posts }) => {
         <div className={styles.preContainer}>
           <h2 className={styles.subtitle}>useUser hook</h2>
           <p className={styles.instructions}>
-            Passing <strong>{`{ loadUser: true }`}</strong> to the root loader makes all Clerk data available both
-            during SSR and CSR
+            Using <strong>{`clerkClient.users.getUser`}</strong> during the SSR request allows all Clerk data available
+            both during SSR and CSR
           </p>
           <pre>
             <code className="language-js">{JSON.stringify({ isLoaded })}</code>
