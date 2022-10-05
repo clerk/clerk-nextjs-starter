@@ -8,11 +8,10 @@ const mockGetPosts = (userId) => {
 };
 
 export const getServerSideProps = async ({ req, resolvedUrl }) => {
-  // Access the auth state on the request object
   const { userId } = getAuth(req);
   const user = userId ? await clerkClient.users.getUser(userId) : null;
 
-  console.log("Auth state:", req.auth);
+  console.log("Auth state:", getAuth(req));
 
   if (!userId) {
     return { redirect: { destination: "/sign-up?redirect_url=" + resolvedUrl } };
