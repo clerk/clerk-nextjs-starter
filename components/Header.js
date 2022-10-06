@@ -24,7 +24,13 @@ const Header = () => (
         <Link href="/sign-in">Sign in</Link>
       </SignedOut>
       <SignedIn>
-        <UserButton userProfileURL="/user" afterSignOutAll="/" afterSignOutOneUrl="/" />
+        <UserButton
+          userProfileMode="navigation"
+          userProfileUrl="/user"
+          afterSignOutUrl="/"
+          afterSignOutAll="/"
+          afterSignOutOneUrl="/"
+        />
       </SignedIn>
     </div>
   </header>
