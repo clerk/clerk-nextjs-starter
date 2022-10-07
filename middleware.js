@@ -1,15 +1,24 @@
 import { withClerkMiddleware, getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
+// Set the paths that don't require the user to be signed in
+const publicPaths = ["/", "/sign-in*", "/sign-up*"];
+
+const isPublic = (path) => {
+  return publicPaths.find((x) => path.match(new RegExp(`^${x}$`.replace("*$", "($|/)"))));
+};
+
 export default withClerkMiddleware((req) => {
-  const publicPaths = ["/", "/sign-in", "/sign-up"];
-  if (publicPaths.some((path) => req.nextUrl.pathname.startsWith(path))) {
+  if (isPublic(req.nextUrl.pathname)) {
     return NextResponse.next();
   }
   const { userId } = getAuth(req);
   if (!userId) {
-    return NextResponse.redirect(new URL("/sign-in", req.url));
+    const signInUrl = new URL("/sign-in", req.url);
+    signInUrl.searchParams.set("redirect_url", req.url);
+    return NextResponse.redirect(signInUrl);
   }
+  return NextResponse.next();
 });
 
-export const config = { matcher: "/((?!_next|static|.*\\..*|favicon.ico).*)" };
+export const config = { matcher: "/((?!.*\\.).*)" };
