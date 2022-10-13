@@ -13,10 +13,6 @@ export const getServerSideProps = async ({ req, resolvedUrl }) => {
 
   console.log("Auth state:", getAuth(req));
 
-  if (!userId) {
-    return { redirect: { destination: "/sign-up?redirect_url=" + resolvedUrl } };
-  }
-
   const posts = await mockGetPosts(userId);
   return { props: { ...buildClerkProps(req, { user }), posts } };
 };
