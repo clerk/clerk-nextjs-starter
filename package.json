@@ -14,10 +14,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.7.0",
-    "next": "^12.3.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@clerk/nextjs": "^4.17.2",
+    "next": "^13.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.21",
